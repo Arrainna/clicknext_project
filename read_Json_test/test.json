@@ -1,273 +1,123 @@
 {
-    "info": {
-      "_postman_id": "a51dae21-a449-4a09-bb3b-0c2e8851abf2",
-      "name": "Test Collection",
-      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-      "_exporter_id": "33062517"
-    },
-    "item": [
-      {
-        "name": "get data",
-        "request": {
-          "auth": {
-            "type": "inherit"
-          },
-          "method": "GET",
-          "header": [],
-          "url": {
-            "raw": "http://localhost/clicknext_project/rest_api/",
-            "protocol": "http",
-            "host": [
-              "localhost"
-            ],
-            "path": [
-              "clicknext_project",
-              "rest_api",
-              ""
-            ]
-          }
-        },
-        "response": []
-      },
-      {
-        "name": "post data",
-        "request": {
-          "auth": {
-            "type": "inherit"
-          },
-          "method": "POST",
-          "header": [],
-          "body": {
-            "mode": "formdata",
-            "formdata": [
-              {
-                "key": "1",
-                "value": "A",
-                "type": "text"
-              },
-              {
-                "key": "2",
-                "value": "B",
-                "type": "text"
-              },
-              {
-                "key": "3",
-                "value": "C",
-                "type": "text"
+  "info": {
+    "title": "My API",
+    "description": "This is my API.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Get all users",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User"
               }
-            ]
-          },
-          "url": {
-            "raw": "http://localhost/clicknext_project/rest_api/",
-            "protocol": "http",
-            "host": [
-              "localhost"
-            ],
-            "path": [
-              "clicknext_project",
-              "rest_api",
-              ""
-            ]
-          }
-        },
-        "response": []
-      },
-      {
-        "name": "post  2",
-        "request": {
-          "auth": {
-            "type": "inherit"
-          },
-          "method": "POST",
-          "header": [
-            {
-              "key": "name",
-              "value": "",
-              "description": "fgaweg",
-              "type": "text"
-            },
-            {
-              "key": "age",
-              "value": "",
-              "description": "agsreg",
-              "type": "text"
             }
-          ],
-          "body": {
-            "mode": "formdata",
-            "formdata": [
-              {
-                "key": "1",
-                "value": "A",
-                "type": "text"
-              },
-              {
-                "key": "2",
-                "value": "B",
-                "type": "text"
-              },
-              {
-                "key": "3",
-                "value": "C",
-                "type": "text"
-              }
-            ]
-          },
-          "url": {
-            "raw": "http://localhost/clicknext_project/rest_api/",
-            "protocol": "http",
-            "host": [
-              "localhost"
-            ],
-            "path": [
-              "clicknext_project",
-              "rest_api",
-              ""
-            ]
           }
-        },
-        "response": []
+        }
       },
-      {
-        "name": "post 3",
-        "request": {
-          "auth": {
-            "type": "inherit"
-          },
-          "method": "POST",
-          "header": [
-            {
-              "key": "X-API-Key",
-              "value": "",
-              "description": "API Key",
-              "type": "text"
-            },
-            {
-              "key": "Authorization",
-              "value": "",
-              "description": "Access Token",
-              "type": "text"
+      "post": {
+        "summary": "Create a new user",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
             }
-          ],
-          "body": {
-            "mode": "formdata",
-            "formdata": [
-              {
-                "key": "adminGroupName",
-                "value": "",
-                "type": "text"
-              },
-              {
-                "key": "permission",
-                "value": "",
-                "type": "text"
-              },
-              {
-                "key": "",
-                "value": "",
-                "type": "text",
-                "disabled": true
-              }
-            ]
-          },
-          "url": {
-            "raw": "http://localhost/clicknext_project/rest_api/?fromDate&toDate",
-            "protocol": "http",
-            "host": [
-              "localhost"
-            ],
-            "path": [
-              "clicknext_project",
-              "rest_api",
-              ""
-            ],
-            "query": [
-              {
-                "key": "fromDate",
-                "value": null,
-                "description": "วันที่เริ่มต้นสำหรับการคัดกรองข้อมูลโดยระบุโดยตรงระบุในรูปแบบ 2024-02-15"
-              },
-              {
-                "key": "toDate",
-                "value": null,
-                "description": "วันที่สิ้นสุดสำหรับการคัดกรองข้อมูลโดยระบุโดยตรงระบุในรูปแบบ 2024-02-17"
-              }
-            ]
           }
-        },
-        "response": []
-      },
-      {
-        "name": "get 2",
-        "protocolProfileBehavior": {
-          "disableBodyPruning": true
-        },
-        "request": {
-          "auth": {
-            "type": "inherit"
-          },
-          "method": "GET",
-          "header": [
-            {
-              "key": "X-API-Key",
-              "value": "",
-              "description": "API Key",
-              "type": "text"
-            },
-            {
-              "key": "Authorization",
-              "value": "",
-              "description": "Access Token",
-              "type": "text"
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/User"
             }
-          ],
-          "body": {
-            "mode": "formdata",
-            "formdata": [
-              {
-                "key": "adminGroupName",
-                "value": "",
-                "type": "text"
-              },
-              {
-                "key": "permission",
-                "value": "",
-                "type": "text"
-              },
-              {
-                "key": "",
-                "value": "",
-                "type": "text",
-                "disabled": true
-              }
-            ]
-          },
-          "url": {
-            "raw": "http://localhost/clicknext_project/rest_api/?fromDate&toDate",
-            "protocol": "http",
-            "host": [
-              "localhost"
-            ],
-            "path": [
-              "clicknext_project",
-              "rest_api",
-              ""
-            ],
-            "query": [
-              {
-                "key": "fromDate",
-                "value": null,
-                "description": "วันที่เริ่มต้นสำหรับการคัดกรองข้อมูลโดยระบุโดยตรงระบุในรูปแบบ 2024-02-15"
-              },
-              {
-                "key": "toDate",
-                "value": null,
-                "description": "วันที่สิ้นสุดสำหรับการคัดกรองข้อมูลโดยระบุโดยตรงระบุในรูปแบบ 2024-02-17"
-              }
-            ]
           }
-        },
-        "response": []
+        }
       }
-    ]
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Get a user by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update a user by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "user",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete a user by ID",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      }
+    }
   }
+}

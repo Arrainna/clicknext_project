@@ -9,35 +9,28 @@
 <body>
     <h3>
       fetched data!!
-    </h3>
+    </h3> 
+        
+    
     <script>
         let fetchedData;
         function fetchJSONData() {
             fetch("test.json")
                 .then((res) => res.json())           
                 .then(data => {
-                 fetchedData = data;
-                 console.log('JSON data:', data.item[0].request);
+                 fetchedData = data.paths;
+                 console.log('JSON data:', data.paths);
                        })
         }
 
-        
+
+
+        document.write(fetchedData)
 
         fetchJSONData();
     </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
 </body>
