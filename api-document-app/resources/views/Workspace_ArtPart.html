@@ -10,6 +10,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
     <style>
@@ -106,11 +107,13 @@
             padding: 1px;
         }
 
+       
+
     </style>
 </head>
 <body class="d-flex flex-row">
      <!-- Start Sidebar -->
-     <aside class="d-flex flex-shrink-0 flex-column primary" style="width:5.625rem; height: 100vh;">
+     <aside class="d-flex flex-shrink-0 flex-column primary debug" style="max-height: 100; width:5.625rem ;height: 100vh ;">
         <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
             <a href="#" class="mt-2 link-body-emphasis text-decoration-none" data-bs-toggle="dropdown" aria-expanded="false">
                 <img width="50px" src="https://media.discordapp.net/attachments/994685233087643719/1215261876972429323/circle_logo.png?ex=65fc1bd1&is=65e9a6d1&hm=2ca5c2f0daef63d683772b7d936e3398948ccc82dff64fe57dcca0eedd499900&=&format=webp&quality=lossless" alt="clicknext-logo">
@@ -183,26 +186,69 @@
             
                   <!-- side bar main content store collections -->
             <div class="container-fluid">
-                <div class="row" style="min-height: 100; height: 84.38vh;">  
-                 <div class="col-2 border" >
+                <div class="row " >  
+                 <div class="col-2 border  " style="min-height: 100; height: 100vh; overflow: scroll;" >
                     <div class="d-flex align-items-center">
-                        <span class="material-symbols-outlined ">add</span>
+                        <span class="material-symbols-outlined me-2">add</span>
                         <div class="input-group mt-1"><i class="fa fa-search"></i>
-                            <input class="form-control textfield fs-6" type="search" name="" id=""  placeholder="Search collections">
+                            <input class="form-control textfield fs-6" type="search" name="" id=""  placeholder="Search">
                         </div>
                     </div>
-                   
 
-                        
-                        
-                 
+                <div class="row " >
+
+                <div class="rol d-flex ">
+                    <p>
+                        <div>
+                            <p class="d-flex mt-2 "><span class="material-symbols-outlined " data-bs-toggle="collapse" href="#CollectionContent" role="button" id="expandable" onclick="expandable()">expand_less</span>
+                                New Collection
+                                <span class="material-symbols-outlined  " style="margin-left: 2.9rem;">more_horiz</span>
+                            </p>
+                            </p>
+                            <div class="collapse " id="CollectionContent">
+                              <div class=" row ms-5 ">
+                                <p>aaa .html</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>  
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                                <p>aaa</p>
+                              </div>
+                            </div>
+                        </div>
+                      </div>                
+                    </div>
                  </div>
+
                   <!-- content below main bar with plus icon-->
-                 <div class="col-10 ">
-                    <p>aaa</p>
-                 </div>
-               </div>
-              </div>
+                  <div class="col-10 ">
+
+                    
+                  </div>
+                </div>
+            </div>
 
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -210,7 +256,21 @@
           </section>
         <!-- End Content -->
     </div>
+
+    
+    
     <!-- End Main -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        function expandable() {
+            var x = document.getElementById("expandable");
+          if (x.innerHTML === "expand_less") {
+             x.innerHTML = "expand_more";
+          } else {
+             x.innerHTML = "expand_less";
+          }
+    }
+        
+        </script>
+    
 </body>
 </html>
