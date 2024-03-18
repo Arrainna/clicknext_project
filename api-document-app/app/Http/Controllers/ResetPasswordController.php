@@ -8,6 +8,8 @@ class ResetPasswordController extends Controller
 {
     //Create Index
     public function index() {
-        return view('auth.forgot-password');
     }
+
+  
+
 }

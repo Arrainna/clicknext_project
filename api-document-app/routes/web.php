@@ -33,6 +33,9 @@ Route::group(['middleware' => 'guest'],function(){
 
     Route::get('/login',[AuthController::class,'login'])->name('login');
     Route::post('/login',[AuthController::class,'loginPost'])->name('login');
+
+    Route::get('/forget-password',[ForgetPasswordController::class,'ForgetPassword'])->name('ForgetPassword');;
+    Route::post('/forget-password',[ForgetPasswordController::class,'ForgetPasswordPost'])->name('ForgetPassword.post');;
 });
 
 Route::group(['middleware' => 'auth'],function(){
