@@ -12,7 +12,6 @@ use App\Http\Controllers\ForgetPasswordController;
 
 
 
-Route::resource('reset-password',ResetPasswordController::class);
 
 
 /*
@@ -35,12 +34,14 @@ Route::group(['middleware' => 'guest'],function(){
     Route::get('/login',[AuthController::class,'login'])->name('login');
     Route::post('/login',[AuthController::class,'loginPost'])->name('login');
 
- 
+
 });
    Route::get('/reset-password/{token}',[ForgetPasswordController::class,'ResetPassword'])
     ->name('reset.password');
-    Route::get('/forget-password',[ForgetPasswordController::class,'ForgetPassword'])->name('ForgetPassword');
-    Route::post('/forget-password',[ForgetPasswordController::class,'ForgetPasswordPost'])->name('ForgetPassword.post');
+    Route::get('/forget-password',[ForgetPasswordController::class,'ForgetPassword'])
+    ->name('ForgetPassword');
+    Route::post('/forget-password',[ForgetPasswordController::class,'ForgetPasswordPost'])
+    ->name('ForgetPassword.post');
     Route::post("/reset-password",[ForgetPasswordController::class,'resetPasswordPost'])
     ->name('reset.password.post');
 

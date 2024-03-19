@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class ForgetPasswordController extends Controller
 {
@@ -31,12 +31,13 @@ class ForgetPasswordController extends Controller
 
         ]);
 
-        Mail::send("emails.email-forgot-password",['token' => $token], function($messege) use ($request){
+        Mail::send("emails.email-forget-password",['token' => $token], function($messege) use ($request){
             $messege->to($request->email);
             $messege->subject("Reset Password");
-        });
 
-        return redirect()->route('login')->with('success','Reset password link has been sent to your email.');
+        });
+        return redirect()->to(route("ForgetPassword"))
+        ->with('success','Reset password link has been sent to your email.');
 
 
     }
@@ -59,16 +60,19 @@ class ForgetPasswordController extends Controller
         ])->first();
         if(!$updatePassword){
             return redirect()->route('reset.password')->with('error','Invalid');
-    
+
     }
+    User::where("email", $request->email)
+        ->update(["password" => Hash::make($request->password)]);
 
-    User::where("email", $request->email)->update(["password" => Hash::make($request->password)]);
-    DB::table('password_reset_tokens')->where(["email"=>$request->email])->delete();
-    return redirect()->route('login')->with('success','Password reset succesfully');
+    DB::table("password_reset_tokens")->where(["email"=>$request->email])->delete();
+    return redirect()->to(route("login"))->with("success","Password reset succesfully");
 
 
- 
-    
-  }    
+
+
+
+
+  }
 
 }

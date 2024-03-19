@@ -297,19 +297,34 @@
                 <div class="header mt-2 ms-2">
                     <img src="https://cdn.discordapp.com/attachments/994685233087643719/1217121151285985350/clicknext_logo.png?ex=6602df67&is=65f06a67&hm=9b903fcb7daa77f74eb6166e5ecf0b998078316cf21d431e1dad8a376caa6082&" alt="" width="155px">
                 </div>
+                <div class="mt-5">
+                    @if($errors->any())
+                    <div class="col-12">
+                    @foreach($errors->all() as $error)
+                        <div class="alert alert-danger">{{$error}}</div>
+                    @endforeach
+                    </div>
+                    @endif
+                    @if(session()->has('error'))
+                        <div class="alert alert-danger">{{session('error')}}</div>
+                    @endif
+                    @if(session()->has(' success'))
+                        <div class="alert alert-success">{{session('success')}}</div>
+                    @endif
+                </div>
                 <div class="col d-flex flex-column align-items-center">
                     <div class="body d-flex flex-column justify-center align-items-center" style="width: 310px; margin-top: 20%;">
                         <label for="" class="mb-4" style="font-size: 32px;">Forgot your password</label>
-                      <form action="{{route('ForgetPassword.post')}}" method="POST" style="width: 100%"> 
+                      <form action="{{route('ForgetPassword.post')}}" method="POST" style="width: 100%">
                         @csrf
                             <div class="input-group mb-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon me-2 mt-2" viewBox="0 0 16 16" width="18" height="18"><path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.784.784 2 1.75 2ZM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V5.809L8.38 9.397a.75.75 0 0 1-.76 0L1.5 5.809v6.442Zm13-8.181v-.32a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25v.32L8 7.88Z"></path></svg>
-                                <input  class="textfield" style="padding-left: 40px; height: 45px; width: 100%; border-radius: 5px;" type="text" name="" id=""  placeholder="Enter your email">
+                                <input  class="email" style="padding-left: 40px; height: 45px; width: 100%; border-radius: 5px;" type="email" name="email" id=""  placeholder="Enter your email">
                             </div>
                             <button class="btn btn-primary" style="font-weight:400; height: 45px;" type="submit">Reset your password</button>
 
                        </form>
-                         
+
                         <div class="d-flex justify-content-center align-items-center mt-4 mb-4" style="width: 100%">
                             <div class="line"></div>
                             <div class="mx-2" style="color: #808080;">or</div>
