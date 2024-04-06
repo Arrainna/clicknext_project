@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 use App\Models\Workspace;
 use App\Models\Collection;
 use App\Models\User;
@@ -128,3 +129,4 @@ class WorkspaceController extends Controller
         return redirect()->back();
     }
 }
+

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\WorkspaceController;
-
+use App\Http\Controllers\LogController;
 
 Route::group(['middleware' => 'guest'],function(){
 
@@ -41,4 +41,9 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('/workspace/{workspace}/add-file', [WorkspaceController::class, 'add_file'])->name('workspace.add_file');
 
     Route::delete('/logout',[AuthController::class,'logout'])->name('logout');
+});
+Route::get('/logs', function () {
+    $logs = History::all();
+
+    return view('logs.index', ['logs' => $logs]);
 });
